@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사주 운세 — 오늘의 사주 풀이</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">✦ 오행의 흐름을 읽다</p>
+      <h1 class="title">사주 운세</h1>
+      <p class="subtitle">양력 생일 하나로 사주팔자와 운의 흐름을 풀어드립니다</p>
+    </header>
+
+    <!-- 입력 섹션 -->
+    <section class="card input-card" id="inputCard">
+      <h2 class="card-title">① 내 정보</h2>
+      <div class="field-grid">
+        <label class="field">
+          <span class="field-label">양력 생일</span>
+          <input type="date" id="birthDate" max="2099-12-31" required />
+        </label>
+        <label class="field">
+          <span class="field-label">성별</span>
+          <div class="seg" role="radiogroup" aria-label="성별">
+            <input type="radio" name="gender" id="genderMale" value="male" checked />
+            <label for="genderMale">남</label>
+            <input type="radio" name="gender" id="genderFemale" value="female" />
+            <label for="genderFemale">여</label>
+          </div>
+        </label>
+        <label class="field">
+          <span class="field-label">태어난 시간 <em>(선택)</em></span>
+          <input type="time" id="birthTime" />
+        </label>
+      </div>
+
+      <h2 class="card-title">② 보고 싶은 운</h2>
+      <div class="choice-grid" role="radiogroup" aria-label="운 종류">
+        <input type="radio" name="category" id="catCareer" value="career" checked />
+        <label for="catCareer" class="choice choice-career">
+          <span class="choice-icon">💼</span>
+          <span class="choice-name">사업운</span>
+          <span class="choice-desc">일·사업의 흐름</span>
+        </label>
+        <input type="radio" name="category" id="catLove" value="love" />
+        <label for="catLove" class="choice choice-love">
+          <span class="choice-icon">💕</span>
+          <span class="choice-name">연애운</span>
+          <span class="choice-desc">관계와 인연</span>
+        </label>
+        <input type="radio" name="category" id="catWealth" value="wealth" />
+        <label for="catWealth" class="choice choice-wealth">
+          <span class="choice-icon">💰</span>
+          <span class="choice-name">재물운</span>
+          <span class="choice-desc">돈과 재산</span>
+        </label>
+      </div>
+
+      <h2 class="card-title">③ 기간</h2>
+      <div class="choice-grid period-grid" role="radiogroup" aria-label="기간">
+        <input type="radio" name="period" id="perDaily" value="daily" checked />
+        <label for="perDaily" class="choice choice-period">
+          <span class="choice-icon">📅</span>
+          <span class="choice-name">매일</span>
+        </label>
+        <input type="radio" name="period" id="perMonth" value="month" />
+        <label for="perMonth" class="choice choice-period">
+          <span class="choice-icon">📆</span>
+          <span class="choice-name">월</span>
+        </label>
+        <input type="radio" name="period" id="perYear" value="year" />
+        <label for="perYear" class="choice choice-period">
+          <span class="choice-icon">🎋</span>
+          <span class="choice-name">한해</span>
+        </label>
+      </div>
+
+      <button class="cta" id="analyzeBtn" type="button">
+        <span class="cta-text">운세 보기</span>
+        <span class="cta-arrow">→</span>
+      </button>
+      <p class="error-msg" id="errorMsg" hidden></p>
+    </section>
+
+    <!-- 결과 섹션 -->
+    <section class="card result-card" id="resultCard" hidden>
+      <div class="result-head">
+        <p class="result-kicker" id="resultKicker"></p>
+        <h2 class="result-title" id="resultTitle"></h2>
+        <p class="result-period" id="resultPeriod"></p>
+      </div>
+
+      <div class="pillars" id="pillars"></div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3 class="panel-title">오행 분포</h3>
+          <div class="elements" id="elements"></div>
+        </div>
+        <div class="panel">
+          <h3 class="panel-title">일간 · 용신</h3>
+          <div class="daymaster" id="daymaster"></div>
+        </div>
+      </div>
+
+      <div class="reading">
+        <h3 class="reading-title" id="readingTitle"></h3>
+        <p class="reading-summary" id="readingSummary"></p>
+        <ul class="reading-guidance" id="readingGuidance"></ul>
+        <p class="reading-caveat" id="readingCaveat"></p>
+      </div>
+
+      <div class="limitations" id="limitations" hidden></div>
+
+      <button class="ghost-btn" id="backBtn" type="button">← 다시 보기</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    사주 풀이는 전통 해석 기반의 참고 자료이며 재미와 자기점검용입니다. 의료·투자·법률 판단을 대신하지 않습니다.
+  </footer>
+
+  <script src="saju-bundle.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
