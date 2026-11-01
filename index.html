@@ -100,23 +100,43 @@
 
       <div class="pillars" id="pillars"></div>
 
-      <div class="grid-2">
-        <div class="panel">
-          <h3 class="panel-title">오행 분포</h3>
-          <div class="elements" id="elements"></div>
-        </div>
-        <div class="panel">
-          <h3 class="panel-title">일간 · 용신</h3>
-          <div class="daymaster" id="daymaster"></div>
-        </div>
+      <div class="panel plain-panel">
+        <h3 class="panel-title">🧑 나의 사주를 쉽게 풀이하면</h3>
+        <p class="plain-text" id="plainPersonality"></p>
+        <p class="plain-note" id="plainNote" hidden></p>
       </div>
 
       <div class="reading">
         <h3 class="reading-title" id="readingTitle"></h3>
-        <p class="reading-summary" id="readingSummary"></p>
-        <ul class="reading-guidance" id="readingGuidance"></ul>
-        <p class="reading-caveat" id="readingCaveat"></p>
+        <p class="reading-plain-head" id="readingPlainHead"></p>
+        <p class="reading-plain-body" id="readingPlainBody"></p>
+        <div class="focus-box" id="focusBox">
+          <span class="focus-icon">💡</span>
+          <p class="focus-text" id="focusText"></p>
+        </div>
       </div>
+
+      <div class="suggestions">
+        <h3 class="panel-title">✅ <span id="suggestTitle">오늘</span> 도움되는 실천 제안</h3>
+        <div class="suggestion-list" id="suggestionList"></div>
+      </div>
+
+      <p class="reading-caveat" id="readingCaveat"></p>
+
+      <details class="details">
+        <summary>🔬 자세한 사주 데이터 보기</summary>
+        <div class="grid-2">
+          <div class="panel">
+            <h3 class="panel-title">오행 분포</h3>
+            <div class="elements" id="elements"></div>
+          </div>
+          <div class="panel">
+            <h3 class="panel-title">일간 · 용신</h3>
+            <div class="daymaster" id="daymaster"></div>
+          </div>
+        </div>
+        <p class="technical-summary" id="technicalSummary"></p>
+      </details>
 
       <div class="limitations" id="limitations" hidden></div>
 
